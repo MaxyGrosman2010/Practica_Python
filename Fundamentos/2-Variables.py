@@ -1,4 +1,4 @@
-#Second Class
+### Second Class ###
 
 #Variables
 firstname = 'Maximiliano'
@@ -18,7 +18,7 @@ print(fullname)
 fullname = firstname + ' ' + lastname
 print(fullname)
 
-#Other ways to make valid variables
+#Other ways to make valid variables Used on Python
 full_name = firstname + ' ' + lastname
 print(full_name)
 
@@ -45,8 +45,8 @@ print(type(print))
 print(len(firstname), len(lastname), len(full_name), len(fullname))
 
 #Variables in one line not a very good practice, VERY CAREFUL IF USING syntaxis
-firstname, lastname, alias, age = 'Maximiliano', 'Grosman', 'Maxy', 29
-print(age, alias, firstname, lastname)
+first_name, last_name, alias, age = 'Maximiliano', 'Grosman', 'Maxy', 29
+print(age, alias, first_name, last_name)
 
 #Create variables which you can add input through command console
 """first_name = input('What is your first name: ')
@@ -55,12 +55,12 @@ print('Your fullname is:', first_name, last_name)"""
 
 #Not a strong typing, VERY CAREFUL WITH THIS
 age = 'Maximiliano'
-firstname = 29
-print(age, firstname)
-lastname = age
-print(lastname)
+first_name = 29
+print(age, first_name)
+last_name = age
+print(last_name)
 
 #Force typing won't work, it's just for us to know what type the variable is, maybe on inputs
 age: int = 29
-age = lastname
+age = last_name
 print(age, type(age))
