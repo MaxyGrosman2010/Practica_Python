@@ -8,8 +8,8 @@ print(len(student))
 print(type(student['skills']))
 student['skills'].append('Soft Skill Training')
 student['skills'].append('Node.JS')
-keys = student.keys()
-values = student.values()
-tuple_dict = student.items()
+keys = list(student.keys())
+values = list(student.values())
+tuple_dict = list(student.items())
 del student['address']
 del dog
