@@ -11,7 +11,7 @@ if first_age > second_age: print(f'The first age is older by {first_age - second
 elif first_age == second_age: print('Both ages are the same')
 else: print(f'The second age is older by {second_age - first_age} years')
 
-a = int(input('Please enter a first numer: '))
+a = int(input('Please enter a first number: '))
 b = int(input('Please enter a second number: '))
 
 if a > b: print(f'{a} is greater then {b}')
@@ -48,8 +48,8 @@ else:
 person={'first_name': 'Asabeneh', 'last_name': 'Yetayeh', 'age': 250, 'country': 'Finland',
     'is_marred': True, 'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
     'address': {'street': 'Space street','zipcode': '02210'}}
-pos_skills = math.ceil((len(person['skills']) - 1) / 2)
-if len(person['skills']) != 0: print(person['skills'][pos_skills])
+
+if len(person['skills']) != 0: print(person['skills'][math.ceil((len(person['skills']) - 1) / 2)])
 if 'Python' in person['skills']: print(person['skills'].index('Python'))
 
 if 'React' in person['skills'] and 'Node' in person['skills'] and 'MongoDB' in person['skills']:
