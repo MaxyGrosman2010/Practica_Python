@@ -91,4 +91,3 @@ def factorial(num):
     if type(num) is int:
         if num >= 1: return num * factorial(num - 1)
         return 1
-
