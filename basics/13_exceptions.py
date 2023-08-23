@@ -22,7 +22,7 @@ except TypeError: #Only catches errors of TypeError in this case, it can be for 
 except ValueError:
     print("An error has occurred of ValueError")
 
-#Exceptions by information of exception
+#Exceptions obtain information of exception
 try:
     print(number_one + number_two)
 except Exception as e:#Exception makes sure that no matter the error it enters here
