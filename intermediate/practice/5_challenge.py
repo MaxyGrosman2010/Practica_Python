@@ -6,9 +6,8 @@ Invert a string without using functions of the programming language you are usin
 """
 
 def invert_str(string):
-    str_as_list = list(string)
-    result = []
-    for i in reversed(str_as_list):
-        result.append(i)
-    return ''.join(result)
+    result = ""
+    for i in range(0, len(string)):
+        result += string[len(string) - 1 - i]
+    return result
 print(invert_str("Hello World"))
