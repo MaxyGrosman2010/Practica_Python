@@ -1,0 +1,1 @@
+print(''.join(first_list))
