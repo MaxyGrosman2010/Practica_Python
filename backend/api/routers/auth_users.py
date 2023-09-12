@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import jwt, JWTError
 from passlib.context import CryptContext
+from db.models.user import UserDB, User
 from datetime import datetime, timedelta
+
 
 router = APIRouter(prefix="/auth", tags=["auth"], 
     responses={status.HTTP_404_NOT_FOUND: {"message": "Not found"}})
@@ -12,16 +13,6 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_DURATION = 60
 crypt = CryptContext(schemes=["bcrypt"])
 SECRET = "38d084ef4c8926791dffcc2a82116f6778bddd08ee8e4d9d149c341ea37e37f4"
-
-class User(BaseModel):
-    id: int
-    name: str
-    username: str
-    age: int
-    disable: bool
-
-class UserDB(User):
-    password: str
 
 users_db = {
     "maxtime": {"id": 1,"name": "Maximiliano Grosman", "age": 29, "username": "maxtime",
@@ -61,8 +52,6 @@ async def current_user(user: User = Depends(auth_user)):
         detail= "Inactive user")
     
     return user
-
-
 
 @router.post("/login")
 async def login(form: OAuth2PasswordRequestForm = Depends()):
