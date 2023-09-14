@@ -12,3 +12,7 @@ app.include_router(router= users.router)
 app.include_router(router= auth_users.router)
 #You can access pdf, images, etc. Through using StaticFiles on the mount function
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+"""Set up for remote server
+install the necessary stuff to work with the remote server
+"""
