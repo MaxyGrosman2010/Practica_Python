@@ -31,7 +31,7 @@ def main():
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages= messages)
         response_content = response.choices[0].message.content
         messages.append({"role": "assistant", "content": response_content})
-        print(f"[bold blue]>\nMessage: {response_content}\n\nRemaining usages: {response.usage}[/bold blue]")
+        print(f"[bold blue]>Message: {response_content}\n\nRemaining usages: {response.usage}[/bold blue]")
 
 def __prompt() -> str:
     prompt = typer.prompt("\nWhat do you want to ask?")
