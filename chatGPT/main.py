@@ -6,8 +6,7 @@ from rich.table import Table
 
 def main():
     openai.api_key = config.api_key
-
-    print("[bold red]>Practice Chat GPT API with Python")
+    print("[bold red]>Practice Chat GPT API with Python[/bold red]")
     table = Table("Command", "Description")
     table.add_row("exit", "Closes the program")
     table.add_row("new", "Creates a new conversation")
@@ -17,16 +16,15 @@ def main():
 # -system: The kind of function it will have as an assistant
 # -user: The way the user connects with CGPT
 # -assistant: The way CGPT will remember the whole conversation.
-    context = [{"role": "system",
-        "content": "You are an assistant with knowledge about videogames"}]
-    messages = context
+    context = {"role": "system",
+               "content": "You are an assistant with knowledge about videogames"}
+    messages = [context]
 
     while True:
-
         content = __prompt()
-
         if content == "new":
-            messages = context
+            print("[bold yellow]Lets begin a new chat[/bold yellow]")
+            messages = [context]
             content = __prompt()
 
         messages.append({"role": "user", "content": content})
@@ -36,10 +34,12 @@ def main():
         print(f"[bold blue]>\nMessage: {response_content}\n\nRemaining usages: {response.usage}[/bold blue]")
 
 def __prompt() -> str:
-    prompt = typer.prompt(input("\nWhat do you want to ask?\n"))
+    prompt = typer.prompt("\nWhat do you want to ask?")
     if prompt == "exit":
         exit = typer.confirm("Are you sure you want to exit?")
-        if exit: raise typer.Abort()
+        if exit:
+            print("Goodbye!")
+            raise typer.Abort()
         return __prompt()
     # elif prompt == "new":messages = context
 
